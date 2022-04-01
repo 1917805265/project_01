@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>判断用户输入的密码长度是否符合要求长度</title>
+    <style>
+        .input{
+            border: 1px solid dodgerblue;
+            margin: 0 auto;
+            width: 300px;
+            height: 30px;
+        }
+        .message{
+            color: cornflowerblue;
+        }
+        .wrong{
+            color: red;
+        }
+        .right{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+<input type="password" value="" class="input">
+<p class="message">请输入6~16位的密码!</p>
+
+<script>
+    var ipt = document.querySelector('.input');
+    var msg = document.querySelector('.message');
+
+    ipt.onblur = function (){
+        if(this.value.length <2 || this.value.length > 16){
+            msg.className = 'message wrong';
+            msg.innerHTML = '您输入的密码位数不对,要求2~16位密码长度!'
+        }
+        else{
+            msg.className = 'message right'
+            msg.innerHTML = '您输入的密码位数正确!'
+        }
+    }
+</script>
+
+</body>
+</html>

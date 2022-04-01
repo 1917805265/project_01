@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态生成表格</title>
+    <style>
+        table{
+            margin: 0 auto;
+            border: 1px solid slategrey;
+            padding: 1px;
+        }
+        tbody tr{
+            height: 50px;
+            width: 60px;
+            border-collapse: collapse;
+            text-align: center;
+            padding: 5px;
+
+        }
+        td,tr{
+            border: 1px solid slategrey;
+
+        }
+        thead tr {
+            height: 50px;
+            background-color: #cccccc;
+        }
+
+
+    </style>
+</head>
+<body>
+    <table cellpadding="0">
+        <thead>
+            <tr>
+                <th>name</th>
+                <th>sex</th>
+                <th>age</th>
+                <th>subject</th>
+                <th>score</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <script>
+        var date = [
+            {
+                name:'大神',
+                sex:'m',
+                age:'18',
+                subject:'javascript',
+                score:90
+            },
+            {
+                name:'光洙',
+                sex:'m',
+                age:'18',
+                subject:'javascript',
+                score:91
+            },
+            {
+                name:'智孝',
+                sex:'f',
+                age:'18',
+                subject:'javascript',
+                score:92
+            },
+            {
+                name:'钟国',
+                sex:'m',
+                age:'18',
+                subject:'javascript',
+                score:93
+            },
+            {
+                name:'哈哈',
+                sex:'m',
+                age:'18',
+                subject:'javascript',
+                score:90,
+            },
+            {
+                name:'鼻叔',
+                sex:'m',
+                age:'18',
+                subject:'javascript',
+                score:88
+            }
+        ]
+        //往tbody里面创建行，有多少数据就创建多少行。
+        var tbody = document.querySelector('tbody')
+        for( var i = 0; i<date.length ; i++){
+            var tr = document.createElement('tr')
+            tbody.appendChild(tr);
+            for (var k in date[i]){
+                var td = document.createElement('td');
+                td.innerHTML = date[i][k];
+                tr.appendChild(td);
+            }
+            //根据数据创建删除单元格
+            var td = document.createElement('td');
+            td.innerHTML = <a href="javascript:;">删除</a>
+            tr.appendChild(td);
+        }
+        //删除操作开始，逻辑：获取 a 标签 ，点击后删除 a 所在的行，链接的爸爸的爸爸。。
+        var d = document.querySelectorAll('a');
+        for(var i= 0; i< d.length;i++){
+            d[i].onclick = function (){             //点击的是d里面的元素，所以应该是d[i]
+                //删除tbody里面的行。
+                tbody.removeChild(this.parentNode.parentNode);
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>

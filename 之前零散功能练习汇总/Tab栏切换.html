@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tab栏切换</title>
+    <link rel="stylesheet" href="css/Tab.css">
+</head>
+<body>
+<div class="tab">
+    <div class="tab_list">
+        <ul>
+            <li class="current">商品介绍</li>
+            <li>规格与包装</li>
+            <li>售后保障</li>
+            <li>商品评价</li>
+            <li>手机社区</li>
+        </ul>
+    </div>
+    <div class="tab_con">
+        <div class="item" style="display:block;">商品介绍板块内容</div>
+        <div class="item">规格与包装板块内容</div>
+        <div class="item">售后保障板块内容</div>
+        <div class="item">商品评价板块内容</div>
+        <div class="item">手机社区板块内容</div>
+    </div>
+</div>
+<script>
+    var navs= document.querySelector('.tab_list').querySelectorAll('li');
+    var itm = document.querySelectorAll('item');
+    //循环绑定事件
+    for(var i=0; i< navs.length;i++){
+        //给每一个li标签都生成一个索引号:
+        navs[i].setAttribute('index',i);
+        navs[i].onclick = function(){
+            for(var i= 0;i< navs.length;i++){
+                navs[i].className= '';
+            }
+            this.className='current';
+            //2.下面内容显示板块:
+            var index = this.getAttribute('index');
+            console.log(index);
+            for(var i = 0; i<itm.length;i++){
+                itm[i].style.display='none';
+            }
+            itm[index].style.display='block';
+        }
+    }
+
+</script>
+</body>
+</html>

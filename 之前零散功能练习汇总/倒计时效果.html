@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>倒计时效果</title>
+    <style>
+         div{
+             color:white;
+             margin: 200px;
+
+        }
+         span{
+             /*display: inline-block;*/
+             background-color: black;
+             height: 40px;
+             width: 150px;
+             line-height: 40px;
+             margin: 20px;
+             font-size: 100px;
+             color: #FFFFFF;
+             text-align: center;
+
+         }
+    </style>
+</head>
+<body>
+    <div>
+        <span class="hour"></span>
+        <span class="minute"></span>
+        <span class="second"></span>
+    </div>
+
+    <script>
+        var hour= document.querySelector('.hour');
+        var minute= document.querySelector('.minute');
+        var second= document.querySelector('.second');
+        var inputTime = +new Date('2022-3-30 18:00:00');
+        countDown();
+        setInterval(countDown,1000);
+        function countDown() {
+                var nowTime = +new Date();
+                var times = (inputTime - nowTime)/1000
+                var h = parseInt((times /60 / 60 % 24).toString());//parseInt只接受字符串类型，括号里的为数字类型，需要转换为字符类型，用.toSring
+                h = h < 10 ? '0' + h:h;
+                hour.innerHTML = h;
+                var m = parseInt((times / 60 % 60).toString());
+                m = m < 10 ? '0' + m:m;
+                minute.innerHTML = m;
+                var s = parseInt((times % 60).toString());
+                s = s < 10 ? '0' + s:s;
+                second.innerHTML = s;
+
+        }
+    </script>
+
+</body>
+</html>

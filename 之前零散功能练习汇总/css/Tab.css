@@ -1,0 +1,40 @@
+.tab{
+
+
+}
+li{
+    list-style: none;
+}
+
+.tab_list{
+    background-color: lightgray;
+    width: 600px;
+    height: 50px;
+    margin: 0 auto;
+    padding-right: 10px;
+}
+.tab_list ul{
+    overflow: hidden;
+}
+.current{
+    height: 35px;
+    background-color:orangered;
+    /*display:block;*/
+    color:white;
+}
+.tab_list li{
+    margin:15px 10px;
+    padding-left: 10px;
+    /*display: block;*/
+    float: left;
+    font-size: large;
+}
+.tab_con{
+    width:600px;
+    margin:0 auto;
+}
+.item{
+    display:none;
+    margin: 8px 8px;
+    text-align: left;
+}

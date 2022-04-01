@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>随鼠标移动的天使</title>
+    <style>
+        img{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <img src="imgs/close.jpg" alt=""  />
+    <script>
+        var pic = document.querySelector('img');
+         document.addEventListener('mousemove',function (e){
+             var x = e.pageX;
+             var y = e.pageY;
+             pic.style.left = x-225 + 'px';   //一定要给坐标一个单位，否则，图片不会跟随移动
+             pic.style.top = y-225 + 'px';
+         })
+    </script>
+
+</body>
+</html>

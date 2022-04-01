@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+</head>
+<body>
+<script>
+    $(function(){
+        $('#left li').onmouseover(functioin(){
+            var index = $(this).index();
+            $('#content div').eq(2).show();
+            $('#content div').eq(index).sibiling().hide();
+        })
+    })
+
+    $(function(){
+        $('#left li').onmouseover(function(){
+            var index = $(this).index();
+            $('.content div').eq(2).show();
+            $('.content div').eq(index).sibiling().hide();
+
+
+            $(function(){
+                $('.class').click(function(){
+                    $('.class').addClass('current').sibilings.removeClass('current');
+                    var index = $(this).index();
+                    $('duixiang').eq(index).show().sibilings().hide();
+                })
+            })
+
+            //王者荣耀手风琴效果
+            $(function(){
+                $('li').onmouseover(function(){
+                    $('li').stop().animate({
+                        width:224
+                    }).find('.small').stop().fadeOut().sibilings('.big').stop().fadeIn();
+                    $(this).sibilings('li').stop().animate({
+                        width:69
+                    }).find('small').stop().fadeIn().sibilings('.big').stop().fadeOut();
+                })
+            })
+
+            //购物车全选
+            $('.checkall').change(function (){
+                // $('j_checkbox').prop('checked');
+                $('.j_checkall','.checkall').prop('checked',$(this).prop('checked'))
+            })
+            $('j_checkbox').change(function(){
+                if($('.j_checkbox:checked').length == $('.j_checkbox').length){  //判断小框被选中的个数是否等于全部小框的数量。
+                    $('.checkall').prop('checked',true);
+                }else{
+                    $('.checkall').prop('checked',false);
+                }
+            })
+
+            //商品数量的增减
+            // 增加数量
+            $('.increment').click(function(){
+                var n = $(this).sibilings('.txt').val();
+                n++;
+                $(this).sibilings('.txt').value(n);
+                //修改 商品小计
+                var p = $(this).parents('.p_num').sibilings('.p_price').html();
+                p = p.substr(1);  //去掉前面的人民币符号，使其能与数量相乘。
+                var price = (p * n).toFixed(2)    //得到的商品小计保留两位小数。
+                $(this).parents('.p_num').sibilings('.p_price').html('￥'+ price);
+            })
+            //减数量
+            $(".decrement").click(function(){
+                var n = $(this).sibilings('.txt').val();
+                if(n == 1){
+                    return false;
+                }
+                n--;
+                $(this).sibilings('.txt').value(n);
+                // 修改 商品小计
+                var p = $(this).parents('.p_num').sibilings('.p_price').html();
+                p = p.substr(1);
+                $(this).parents('.p_num').sibilings('.p_price').html('￥'+ (p * n).toFixed(2));
+
+            })
+        //    用户直接在文本框输入数量
+            $('.txt').change(function(){
+                //得到用户输入的值
+                var n =$(this).val();
+                //得到商品的价格
+                var p =$(this).parents('.p_num').sibilings('.p_price').html();
+                p= p.substr(1);
+                $(this).parents('.p_num').sibilings('.p_price').html('￥'+ (p * n).toFixed(2));
+
+            })
+        //微博发布留言删除留言案例：
+            //1,点击发布按钮，动态创建 li 放入文本框的内容和删除按钮。并且添加到 ul 中。
+            $(functioni(){
+                $('.btn').on('click',function(){
+                    var li = $('<li><li>');         //动态创建 li
+                    li.html($('.text').val() + "<a href= javascript:;>delete</a>");  //放入文本框的内容和删除按钮
+                    $('ul').prepend(li);                            // li 添加到 ul 中
+                    li.slideDown();                                 // li 滑动出现
+                    $('.text').value("");                           //用户点击发布后，文本框里面的值自动清楚。
+                })
+                // 2 点击删除按钮，li清除。
+                $('ul').on('click', 'a',function(){         //删除按钮是动态创建的，所以使用 on 。
+                    $(this).parent().slideUp(function(){     // 清除 a 标签的父级 li
+                        $(this).remove();            //   清除 a 标签。
+                    });
+                })
+            }
+
+
+
+
+
+        })
+    })
+</script>
+
+</body>
+</html>

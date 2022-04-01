@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全选和取消全选</title>
+    <style>
+        table{
+            width:50%;
+            height:50%;
+            margin: 0 auto;
+            align-content: center;
+            /*border: 1px solid darkblue;*/
+        }
+        table th{
+            height:60px;
+            background-color: dodgerblue;
+        }
+        table tr{
+            height: 40px;
+        }
+        table tr td{
+            text-align: center;
+            height: 40px;
+        }
+    </style>
+
+</head>
+<body>
+<div class="wrap">
+    <table border="1" color="dodgerblue">
+        <thead>
+            <tr>
+                <th>
+                    <input type="checkbox" id="j_cbAll" />
+                </th>
+                <th>name</th>
+                <th>sex</th>
+                <th>age</th>
+                <th>label</th>
+            </tr>
+        </thead>
+        <tbody id="j_tb">
+            <tr>
+                <td>
+                    <input type="checkbox" />
+                </td>
+                <td>张珊</td>
+                <td>女</td>
+                <td>19</td>
+                <td>student</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" />
+                </td>
+                <td>李思</td>
+                <td>男</td>
+                <td>18</td>
+                <td>student</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" />
+                </td>
+                <td>mike</td>
+                <td>男</td>
+                <td>20</td>
+                <td>actor</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" />
+                </td>
+                <td>aom</td>
+                <td>女</td>
+                <td>19</td>
+                <td>idol</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" />
+                </td>
+                <td>智孝</td>
+                <td>女</td>
+                <td>18</td>
+                <td>actress</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<script>
+    //1.首先对表头的全选按钮进行处理.
+    //①全选被选中,下面表体部分的选框要全部被选中.
+    //获取对象:
+    var j_cbAll= document.getElementById('j_cbAll');
+    var j_cbs = document.getElementById('j_tb').getElementsByTagName('input');
+    j_cbAll.onclick = function(){
+        for(var i= 0; i<j_cbs.length;i++){
+            j_cbs[i].checked= this.checked;
+        }
+    }
+    // 2.对下面每一个选项框进行处理:
+    for(var i= 0; i<j_cbs.length;i++) {
+        j_cbs[i].onclick = function () {
+            var flag = true;
+            for (var i = 0; i < j_cbs.length; i++) {
+                if (!j_cbs[i].checked) {
+                    flag = false;
+                    break;
+                }
+            }
+            j_cbAll.checked = flag;
+        }
+    }
+</script>
+
+</body>
+</html>

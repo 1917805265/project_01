@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发送短信</title>
+</head>
+<body>
+手机号码：<input type="number"/><button>发送</button>
+
+<!--1、点击发送，按钮变为禁用，出现倒计时信息，添加一个定时器。
+2、时间为 0 时，清除定时器，文字变为发送，禁用按钮变为可点击按钮。时间重新回到设置的时间。
+3、时间不为 0 时，提示剩余时间信息，时间继续递减。
+-->
+<script>
+    // 获取对象
+    var sent = document.querySelector('button');
+    var time = 3
+    //注册事件：点击
+    sent.addEventListener('click',function (){
+        sent.disabled = true;                       //点击发生后，按钮变为禁用，设置一个定时器，并
+        var timer = setInterval(function(){
+            if(time == 0){                          //判断时间是否为 0
+                clearInterval(timer);               //时间为 0 时，清除定时器
+                sent.disabled = false;              //禁用按钮变为可点击按钮
+                sent.innerHTML= '发送';              //文字变为发送
+                time = 3;                           //时间重新回到设置的时间
+            }
+            else{
+                sent.innerHTML = '还剩下'+time+'秒';        //时间不为 0 时，提示剩余时间信息，
+                time--;                                   //time--
+            }
+        },1000)                                          //递减的时间 ：1秒。
+
+    })
+</script>
+</body>
+</html>

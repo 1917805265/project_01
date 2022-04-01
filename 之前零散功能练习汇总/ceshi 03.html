@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ceshi03</title>
+    <script>
+    // function sort(arr){
+    //     for(var i=0 ; i< arr.length-1 ;i++){
+    //         for(var j = 0; j< arr.length-i-1;j++){
+    //             if(arr[j] > arr[j+1]){
+    //                 var temp=arr[j];
+    //                 arr[j] = arr[j+1];
+    //                 arr[j+1] = temp;
+    //             }
+    //         }
+    //     }
+    //     return arr;
+    // }
+    // var arr1=sort([1,7,9,8,3,7,5,8]);
+    // console.log(arr1);
+    //---------------------------------------------------------------------
+    //判断是否是闰年:
+    // function isRunYear(year){
+    //     var Y=false;
+    //     if(year % 4==0 && year% 100!= 0 || year % 400==0){
+    //         Y=true;
+    //     }
+    //     return Y
+    // }
+    // console.log(isRunYear(2022));
+    // console.log(isRunYear(2000));
+    //
+    // //---------------------------------------------------------------------
+    // //判断用户输入年份中的2月份天数:平年2月份的天数28天,闰年2月份天数为29天.函数调用判断闰年的函数.if (isRunYear(year))
+    // function backday(){
+    //     var year= prompt("请输入年份:")
+    //     if (isRunYear(year)){
+    //         alert("您输入的年份是闰年,2月份总共有29天!")
+    //     }else{
+    //         alert("您输入的年份是平年,2月份总共有28天!")
+    //     }
+    // }
+    // backday()
+
+    // var date=new Date();
+    // var year = date.getFullYear();
+    // var month = date.getMonth() + 1;  //月份需要加1
+    // var dates = date.getDate();
+    // var arr = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];  //星期天是0 星期一~星期六 依次是 1~6.
+    // var day = date.getDay();
+    // console.log('今天是' + year +'年' + month +'月' + dates + '日' + arr[day]);
+//----------格式化具体时间----------------------------------------------------------------------------
+//     function getTime(){
+//         var time = new Date();
+//         var h = time.getHours();
+//         h = h < 10 ? '0' + h:h;
+//         var m = time.getMinutes();
+//         m = m < 10 ? '0' + m:m;
+//         var s = time.getSeconds();
+//         s = s < 10 ? '0' + s:s;
+//         return h + ':' + m +':' + s;
+//     }
+// console.log(getTime());
+
+    //----------------------------------------------封装一个去掉重复数组元素的函数---------------------------------------
+    // function unique(arr){
+    //     var newArray = [];
+    //     for (var i = 0 ; i< arr.length; i++){
+    //         if(newArray.indexOf(arr[i])=== -1){
+    //             newArray.push (arr [i]);
+    //         }
+    //     }
+    //     return newArray;
+    // }
+    // var ceShi= unique(['pink','apple','apple','pear','orange','pink']);
+    // console.log(ceShi);
+
+    // -------------------------------------查找某个字符出现的位置以及次数---------------------------------------------------------
+// var arr = ['black','pink','apple','red','blue','pink','white','pink'];
+// var arr1 = arr.indexOf(arr['pink']);
+// var num = 0;
+// for (var i = 0; i< arr.length; i++){
+//     while (arr1 !== -1){
+//         console.log(arr1);
+//         num++;
+//         arr1 = arr.indexOf('pink',arr1[i+1]);
+//     }
+// }
+// console.log('pink出现的次数是:'+ num + '次!');
+
+//----------------------------统计字符出现的次数--------------------------------------------------------
+// var str='abcoefoxyozzopp';
+// var o = {};
+// for (var i = 0;i<= str.length;i++){
+//     var chars = str.charAt(i)
+//     if(o[chars]){
+//         o[chars]++;
+//     }else{
+//         o[chars] = 1;
+//     }
+// }
+// console.log(o);
+// var max = 0;
+// var ch = '';
+// for(k in o){
+//     // k 得到的是属性名
+//     //k [o]得到的是属性值
+//     if(o[k] > max){
+//         max = o[k];
+//         ch= k;
+//     }
+// }
+// console.log(max);
+// console.log('最多的字符串是' + ch);
+//------------------------------------------------------
+    </script>
+</head>
+<body>
+
+</body>
+</html>

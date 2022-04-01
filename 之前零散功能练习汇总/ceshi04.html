@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ceshi04</title>
+    <style>
+        img{
+            width:200px;
+            margin:0px auto 0px 10px;
+            height: 100px;
+            float: inside;
+        }
+        .b1{
+            width: 50px;
+            background-color: darkgray;
+            margin-right: 100px;
+        }
+        #b2{
+            width: 50px;
+            background-color: darkgray;
+            margin-right: 100px;
+        }
+    </style>
+</head>
+<body>
+<!--<ul>-->
+<!--    <li>nihao</li>-->
+<!--    <li>hello</li>-->
+<!--    <li>pink</li>-->
+<!--    <li>green</li>-->
+<!--</ul>-->
+<!--<ol>-->
+<!--    <li>哈哈</li>-->
+<!--    <li>智孝</li>-->
+<!--    <li>大神</li>-->
+<!--    <li>钟国</li>-->
+<!--    <li>Gary</li>-->
+<!--    <li>石镇</li>-->
+<!--    <li>光洙</li>-->
+<!--</ol>-->
+
+<!--<button>显示当前时间</button>-->
+<!--<div>某个时间</div>-->
+<!--<p>不用点击,刷新即可显示具体时间</p>-->
+<button class="b1">mike</button>
+<button id="b2">aom</button>
+<img src='imgs/mike.jpg' alt='' title="mike">
+<script>
+    // var lis = document.getElementsByTagName('li'); // 返回所有的 li 标签
+    // console.log(lis);
+    // console.log(lis[0]);
+    // for( var i = 0;i<lis.length;i++){
+    //     console.log(lis[i]);
+    // }
+    // var btn = document.querySelector('button');
+    // var di= document.querySelector('div');
+    // btn.onclick = function(){
+    //     di.innerText = getTime();
+    // }
+    // function getTime(){
+    //     var time = new Date();
+    //     var h = time.getHours();
+    //     h = h < 10 ? '0' + h:h;
+    //     var m = time.getMinutes();
+    //     m = m < 10 ? '0' + m:m;
+    //     var s = time.getSeconds();
+    //     s = s < 10 ? '0' + s:s;
+    //     return h + ':' + m +':' + s;
+    // }
+    // //不用点击即可显示时间
+    // var p= document.querySelector('p');
+    // p.innerText= getTime();
+    var btn1 = document.querySelector('.b1');
+    var btn2 = document.querySelector('#b2');
+    var img = document.querySelector('img');
+
+    btn2.onclick = function(){
+        img.src= 'imgs/aom.jpg'
+        img.title= 'aom';
+    }
+    btn1.onclick = function(){
+        img.src= 'imgs/mike.jpg'
+        img.title= 'mike';
+    }
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获得焦点,失去焦点</title>
+    <style>
+        input text{
+            color: #999;
+        }
+    </style>
+</head>
+<!--1.为获得焦点,显示文字"手机",颜色稍深一点.-->
+<!--2.获得焦点,判断文字是否为"手机"两字.是就让值为空.颜色稍深一点,便于用户区分输入的值.-->
+<!--3.失去焦点,判断值是否为空,空就让值为"手机".颜色变浅-->
+<body>
+<input type="text" value="手机">
+
+<script>
+    var con = document.querySelector('input');
+    con.onfocus = function(){
+        if(this.value == '手机'){
+            this.value = '';
+        }
+            this.style.color = '#333';
+    }
+    con.onblur = function(){
+        if(this.value == ''){
+            this.value = '手机';
+        }
+        this.style.color = '#999';
+    }
+
+</script>
+</body>
+</html>
